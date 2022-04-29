@@ -5,7 +5,8 @@ const cors = require("cors");
 const recipesController = require("./controller/recipes-controller");
 const app = express();
 const port = process.env.PORT || 3005;
-
+var distDir = __dirname + "/dist/";
+app.use(express.static(distDir));
 app.use(cors());
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
