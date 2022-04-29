@@ -1,0 +1,35 @@
+@import url("https://fonts.googleapis.com/css?family=Barlow");
+
+body {
+  font-family: "Barlow", sans-serif;
+}
+
+.h5 {
+  height: 200px;
+}
+
+.recipe {
+  margin-top: 15px;
+}
+
+.card {
+  height: 400px;
+}
+
+img {
+  height: 300px;
+  width: 200px;
+}
+
+/* Image Zoom In and Zoom Out Effect */
+.inner {
+  overflow: hidden;
+}
+
+.inner img {
+  transition: all 1.5s ease;
+}
+
+.inner:hover img {
+  transform: scale(1.5);
+}
