@@ -88,7 +88,7 @@ function editFunction(recipe) {
 }
 
 function searchFunction(resp) {
-  axios.get("http://localhost:3005/recipes").then((resp) => {
+  axios.get("https://recipescollections.herokuapp.com/recipes").then((resp) => {
     let searchRecipes = resp.data;
     console.log(searchRecipes);
 
