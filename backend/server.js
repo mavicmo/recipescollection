@@ -15,7 +15,7 @@ app.use(express.urlencoded({ extended: true }));
 app.use("/recipes", recipesController);
 
 app.get("/", (req, res) => {
-  res.sendFile(path.join(__dirname, "frontend", "index.html"));
+  res.sendFile(path.join(__dirname, "../frontend", "index.html"));
 });
 
 app.listen(process.env.PORT || port, () => {
