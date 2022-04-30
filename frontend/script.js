@@ -88,7 +88,7 @@ function editFunction(recipe) {
 }
 
 function searchFunction(resp) {
-  axios.get("https://recipescollections.herokuapp.com/recipes").then((resp) => {
+  axios.get("http://localhost:3005/recipes").then((resp) => {
     let searchRecipes = resp.data;
     console.log(searchRecipes);
 
@@ -113,7 +113,7 @@ addRecipe.addEventListener("click", (e) => {
   const link = document.querySelector("#link").value;
 
   axios
-    .post("https://recipescollections.herokuapp.com/recipes", {
+    .post("http://localhost:3005/recipes", {
       name,
       img,
       link,
@@ -136,7 +136,7 @@ editSubmit.addEventListener("click", (e) => {
   const img = document.querySelector("#imgEdit").value;
   const link = document.querySelector("#linkEdit").value;
   axios
-    .put(`https://recipescollections.herokuapp.com/${editing}`, {
+    .put(`http://localhost:3005/recipes/${editing}`, {
       name,
       img,
       link,
@@ -151,11 +151,9 @@ editSubmit.addEventListener("click", (e) => {
 });
 
 deleteRecipe.addEventListener("click", (e) => {
-  axios
-    .delete(`https://recipescollections.herokuapp.com/${editing}`)
-    .then((resp) => {
-      addFunction(resp.data);
-    });
+  axios.delete(`http://localhost:3005/recipes/${editing}`).then((resp) => {
+    addFunction(resp.data);
+  });
 });
 
 ///////////////////////////////////////////////////////////////////////////////////////////////
