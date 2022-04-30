@@ -18,7 +18,8 @@ function addFunction(recipesData) {
   try {
     recipesData.forEach((recipe) => {
       if (!recipe.name || !recipe.img || !recipe.link) {
-        alert(`Do Not Leave Any Blank`);
+        console.log(`Do Not Leave Any Blank`);
+        return;
       }
 
       const colDiv = document.createElement("div");
@@ -83,14 +84,12 @@ function editFunction(recipe) {
   linkEdit.value = recipe.link;
   imgEdit.value = recipe.img;
 
-  console.log(recipe._id);
   editing = recipe._id;
 }
 
 function searchFunction(resp) {
   axios.get("http://localhost:3005/recipes").then((resp) => {
     let searchRecipes = resp.data;
-    console.log(searchRecipes);
 
     //filter method to search
     searchBtn.addEventListener("keyup", (e) => {
@@ -99,7 +98,7 @@ function searchFunction(resp) {
       const filtered = searchRecipes.filter((recipe) => {
         return recipe.name.toLowerCase().includes(searchStr);
       });
-      console.log(filtered);
+
       addFunction(filtered);
     });
   });
@@ -119,7 +118,6 @@ addRecipe.addEventListener("click", (e) => {
       link,
     })
     .then((resp) => {
-      console.log(resp.data);
       addFunction(resp.data);
     })
     .then(() => {
@@ -145,7 +143,6 @@ editSubmit.addEventListener("click", (e) => {
       addFunction(resp.data);
     })
     .then((resp) => {
-      console.log(`clicked`);
       searchFunction();
     });
 });
